@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/shared-types/*": ["types/*"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["renderer/**/*.ts", "renderer/**/*.tsx", "node_modules", "**/*.spec.ts"]
+}

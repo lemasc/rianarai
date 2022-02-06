@@ -1,0 +1,111 @@
+/* sarabun-regular - thai_latin */
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('./sarabun/sarabun-v8-thai_latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./sarabun/sarabun-v8-thai_latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* sarabun-italic - thai_latin */
+@font-face {
+  font-family: 'Sarabun';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''), url('./sarabun/sarabun-v8-thai_latin-italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./sarabun/sarabun-v8-thai_latin-italic.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* sarabun-600 - thai_latin */
+@font-face {
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''), url('./sarabun/sarabun-v8-thai_latin-600.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./sarabun/sarabun-v8-thai_latin-600.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* sarabun-600italic - thai_latin */
+@font-face {
+  font-family: 'Sarabun';
+  font-style: italic;
+  font-weight: 600;
+  src: local(''), url('./sarabun/sarabun-v8-thai_latin-600italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./sarabun/sarabun-v8-thai_latin-600italic.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* kanit-300italic - thai_latin */
+@font-face {
+  font-family: 'Kanit';
+  font-style: italic;
+  font-weight: 300;
+  src: local(''), url('./kanit/kanit-v7-thai_latin-300italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kanit/kanit-v7-thai_latin-300italic.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* kanit-300 - thai_latin */
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''), url('./kanit/kanit-v7-thai_latin-300.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kanit/kanit-v7-thai_latin-300.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* kanit-regular - thai_latin */
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('./kanit/kanit-v7-thai_latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kanit/kanit-v7-thai_latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* kanit-500 - thai_latin */
+@font-face {
+  font-family: 'Kanit';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('./kanit/kanit-v7-thai_latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kanit/kanit-v7-thai_latin-500.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* kodchasan-regular - thai_latin */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('./kodchasan/kodchasan-v6-thai_latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kodchasan/kodchasan-v6-thai_latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* kodchasan-600 - thai_latin */
+@font-face {
+  font-family: 'Kodchasan';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''), url('./kodchasan/kodchasan-v6-thai_latin-600.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./kodchasan/kodchasan-v6-thai_latin-600.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('./roboto/roboto-v29-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./roboto/roboto-v29-latin-500.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* pattaya-regular - thai_latin */
+@font-face {
+  font-family: 'Pattaya';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''), url('./pattaya/pattaya-v7-thai_latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./pattaya/pattaya-v7-thai_latin-regular.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

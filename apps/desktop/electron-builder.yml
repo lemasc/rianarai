@@ -1,0 +1,19 @@
+appId: com.lemasc.rianarai
+productName: RianArai
+copyright: Copyright © 2021 Lemasc Service
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+      - main
+      - static/*.html
+      - static/index.css
+publish:
+  - provider: github
+    owner: lemasc
+    repo: rianarai-pc-insider
+

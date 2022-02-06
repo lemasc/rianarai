@@ -1,0 +1,19 @@
+diff --git a/node_modules/@notifee/react-native/plugin/build/withNotifeeProjectGradlePlugin.js b/node_modules/@notifee/react-native/plugin/build/withNotifeeProjectGradlePlugin.js
+index 05db5f9..f91668b 100644
+--- a/node_modules/@notifee/react-native/plugin/build/withNotifeeProjectGradlePlugin.js
++++ b/node_modules/@notifee/react-native/plugin/build/withNotifeeProjectGradlePlugin.js
+@@ -13,10 +13,12 @@ const withNotifeeProjectGradlePlugin = config => {
+     });
+ };
+ const setMavenRepository = (projectBuildGradle) => {
+-    if (projectBuildGradle.includes('@notifee/react-native/android/libs'))
++    if (projectBuildGradle.includes('@notifee/react-native'))
+         return projectBuildGradle;
+     return projectBuildGradle.replace(/mavenLocal\(\)/, `mavenLocal()
+-        maven { url "$rootDir/../node_modules/@notifee/react-native/android/libs" }`);
++        maven {
++            url(new File(["node", "--print", "require.resolve('@notifee/react-native/package.json')"].execute(null, rootDir).text.trim(), "../android/libs"))
++        }`);
+ };
+ exports.setMavenRepository = setMavenRepository;
+ exports.default = withNotifeeProjectGradlePlugin;
