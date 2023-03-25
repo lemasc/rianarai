@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "mobile/*": ["./apps/mobile/*"]
+    }
+  },
+  "extends": "expo/tsconfig.base"
+}

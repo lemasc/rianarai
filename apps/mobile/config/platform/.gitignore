@@ -1,0 +1,6 @@
+# This folder contains platform specific secrets
+# Mostly Google Play Services configuration files
+# And shouldn't be checked into version control
+
+*
+!.gitignore
