@@ -1,2 +1,2 @@
 require("ts-node/register");
-module.exports = require("./config/expo.ts");
+module.exports = require("config/expo");
