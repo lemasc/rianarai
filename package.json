@@ -12,7 +12,9 @@
   },
   "resolutions": {
     "metro": "^0.73.7",
-    "metro-resolver": "^0.73.7"
+    "metro-resolver": "^0.73.7",
+    "native-base@*": "patch:native-base@npm%3A3.4.28#./.yarn/patches/native-base-npm-3.4.28-a8ecceae4d.patch",
+    "native-base@^3.4.28": "patch:native-base@npm%3A3.4.28#./.yarn/patches/native-base-npm-3.4.28-a8ecceae4d.patch"
   },
   "overrides": {
     "metro": "^0.73.7",
@@ -27,5 +29,8 @@
     "eslint-plugin-import": "^2.27.5",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }

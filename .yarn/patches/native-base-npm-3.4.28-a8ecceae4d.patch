@@ -1,0 +1,73 @@
+diff --git a/lib/typescript/core/color-mode/hooks.d.ts b/lib/typescript/core/color-mode/hooks.d.ts
+index e80538ba728542ac72862b81d85e078ca3005dee..9abbb6ee139b5bc98aab818ccfdd5597ade436f4 100644
+--- a/lib/typescript/core/color-mode/hooks.d.ts
++++ b/lib/typescript/core/color-mode/hooks.d.ts
+@@ -1,6 +1,6 @@
+ import type { ColorMode, StorageManager, IColorModeContextProps } from './types';
+ export declare const useColorMode: () => IColorModeContextProps;
+-export declare function useColorModeValue(light: any, dark: any): any;
++export declare function useColorModeValue<T>(light: T, dark: T): T;
+ export declare const useAppState: () => import("react-native").AppStateStatus;
+ export declare const useColorScheme: () => "light" | "dark" | null | undefined;
+ export declare function useModeManager(initialColorMode: ColorMode, useSystemColorMode: boolean | undefined, colorModeManager?: StorageManager): {
+diff --git a/lib/typescript/hooks/useBreakpointValue.d.ts b/lib/typescript/hooks/useBreakpointValue.d.ts
+index fa26c63866853b078d2405be4ce6cab39baf715c..65c878853c6d2f8adfca5a96887c5696f7e5d0e6 100644
+--- a/lib/typescript/hooks/useBreakpointValue.d.ts
++++ b/lib/typescript/hooks/useBreakpointValue.d.ts
+@@ -1,6 +1,6 @@
+ import type { ITheme } from '../theme/index';
+-declare type UseBreakpointValueParam = {
+-    [key in keyof ITheme['breakpoints']]?: any;
+-} | Array<any>;
+-export declare function useBreakpointValue(values: UseBreakpointValueParam): any;
++declare type UseBreakpointValueParam<T> = {
++    [key in keyof ITheme['breakpoints']]?: T;
++} | Array<T>;
++export declare function useBreakpointValue<T>(values: UseBreakpointValueParam<T>): T | undefined;
+ export {};
+diff --git a/src/core/color-mode/hooks.tsx b/src/core/color-mode/hooks.tsx
+index cab1f709c2bcbee6361583028ccde309b3515bd4..3901fbbc984ef0d157ab8739eb60ddee7e351c63 100644
+--- a/src/core/color-mode/hooks.tsx
++++ b/src/core/color-mode/hooks.tsx
+@@ -23,7 +23,7 @@ export const useColorMode = (): IColorModeContextProps => {
+   return colorModeContext;
+ };
+ 
+-export function useColorModeValue(light: any, dark: any) {
++export function useColorModeValue<T>(light: T, dark: T) {
+   const { colorMode } = useColorMode();
+   return colorMode === 'dark' ? dark : light;
+ }
+diff --git a/src/hooks/useBreakpointValue.ts b/src/hooks/useBreakpointValue.ts
+index 90be0c5706f016fce52db210204801aba93b0606..b4232c0b10bc8648fb2a070e4dbe038c9789884e 100644
+--- a/src/hooks/useBreakpointValue.ts
++++ b/src/hooks/useBreakpointValue.ts
+@@ -7,11 +7,11 @@ import {
+ import { useTheme } from './../hooks/useTheme';
+ import type { ITheme } from '../theme/index';
+ 
+-type UseBreakpointValueParam =
+-  | { [key in keyof ITheme['breakpoints']]?: any }
+-  | Array<any>;
++type UseBreakpointValueParam<T> =
++  | { [key in keyof ITheme['breakpoints']]?: T }
++  | Array<T>;
+ 
+-export function useBreakpointValue(values: UseBreakpointValueParam) {
++export function useBreakpointValue<T>(values: UseBreakpointValueParam<T>): T | undefined {
+   let windowWidth = useWindowDimensions()?.width;
+   const theme = useTheme();
+ 
+@@ -26,6 +26,11 @@ export function useBreakpointValue(values: UseBreakpointValueParam) {
+       currentBreakpoint
+     );
+   } else {
+-    return values;
++    if (typeof values === "object") {
++      if (Array.isArray(values)) {
++        return values[0];
++      }
++      return values["base"]
++    }
+   }
+ }

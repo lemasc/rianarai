@@ -1,0 +1,9 @@
+{
+    "name": "ui",
+    "dependencies": {
+        "@react-navigation/stack": "^6.3.16",
+        "expo-router": "^1.2.0",
+        "native-base": "^3.4.28",
+        "react": "18.1.0"
+    }
+}

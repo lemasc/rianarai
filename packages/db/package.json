@@ -1,0 +1,13 @@
+{
+    "name": "db",
+    "private": true,
+    "dependencies": {
+        "@realm/react": "^0.4.3",
+        "react": "18.1.0"
+    },
+    "exports": {
+        "./models": {
+            "default": "./models/index.ts"
+        }
+    }
+}
