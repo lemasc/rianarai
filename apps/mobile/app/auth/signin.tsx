@@ -31,7 +31,7 @@ function Content(props: ContentProps): JSX.Element {
           borderBottomWidth="1"
         >
           <Brand pb="2" />
-          <Text isTruncated py="2" fontSize="2xl" fontFamily="Kodchasan-800">
+          <Text isTruncated py="2" fontSize="2xl" fontFamily="Kodchasan-700">
             {props.title}
           </Text>
           <Text fontSize="lg">{props.desc}</Text>

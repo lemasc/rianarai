@@ -6,7 +6,7 @@ type GlobalHeaderOptions = {
 
 export const headerOptions: GlobalHeaderOptions = {
   headerTitleStyle: {
-    fontFamily: "Kanit-800",
+    fontFamily: "Kanit-700",
   },
 };
 

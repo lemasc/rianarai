@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import GoogleIcon from "mobile/components/icon/google";
 import { signInWithGoogle } from "mobile/features/user/functions";
 import { Link, HStack, VStack, Text, useToast, Icon } from "native-base";
-import { Button as CButton } from "ui";
+import { Button } from "ui/components";
 
 function SignInWithGoogleButton() {
   const toast = useToast();
@@ -24,7 +24,7 @@ function SignInWithGoogleButton() {
 
   return (
     <>
-      <CButton
+      <Button
         rounded="xl"
         py="3"
         borderWidth="1"
@@ -44,7 +44,7 @@ function SignInWithGoogleButton() {
         }}
       >
         เข้าสู่ระบบด้วย Google
-      </CButton>
+      </Button>
     </>
   );
 }
@@ -67,7 +67,7 @@ function SignInWihEmailButton() {
     }
   };
   return (
-    <CButton
+    <Button
       rounded="xl"
       py="3"
       borderWidth="1"
@@ -92,7 +92,7 @@ function SignInWihEmailButton() {
       }}
     >
       เข้าสู่ระบบด้วยอีเมล
-    </CButton>
+    </Button>
   );
 }
 

@@ -11,6 +11,11 @@ export const theme = extendTheme({
         },
       }),
     },
+    Button: {
+      defaultProps: {
+        colorScheme: "rianarai",
+      },
+    },
   },
   colors: {
     rianarai: {
@@ -46,5 +51,12 @@ export const theme = extendTheme({
     brand: "Pattaya",
     body: "Kanit",
     mono: "Roboto",
+    content: "Sarabun",
   },
 });
+
+type CustomThemeType = typeof theme;
+
+declare module "native-base" {
+  interface ICustomTheme extends CustomThemeType {}
+}

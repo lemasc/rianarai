@@ -15,7 +15,7 @@ const overrideWeight = (family: string, originalWeight: number): number => {
   }
   if (weight === 600) {
     // Map semi-bold to bold
-    return 800;
+    return 700;
   }
   return weight;
 };
