@@ -3,11 +3,11 @@ import {
   StackNavigationOptions,
 } from "@react-navigation/stack";
 import { headerOptions } from "config/nav";
-import { useSegments, withLayoutContext } from "expo-router";
-import React, { useEffect, useMemo, useRef } from "react";
+import { withLayoutContext } from "expo-router";
+import React from "react";
 
-import { useBottomSheetScreens } from "./useBottomSheetScreens";
 import { useNestedStack } from "./useNestedStack";
+import { useNestedStackScreens } from "./useNestedStackScreens";
 
 const { Navigator } = createStackNavigator();
 
@@ -40,31 +40,13 @@ export const Stack = withLayoutContext<
 type StackProps = React.ComponentProps<typeof Stack>;
 
 export const NestedStack = (props: StackProps) => {
-  const screenOptions = useNestedStack();
-  const { routes, childrens } = useBottomSheetScreens(props.children);
-  const segments = useSegments();
-  const currentRoute = useMemo(() => segments[2], [segments]);
-  const currentRouteIsBottomSheet = useMemo(
-    () => currentRoute !== undefined && routes.includes(currentRoute),
-    [currentRoute, routes]
-  );
-  const optionsSnapshot = useRef(screenOptions);
-
-  useEffect(() => {
-    // Don't update the snapshot if the current route is defined as a bottom sheet
-    if (currentRouteIsBottomSheet) return;
-    // If the current route is a bottom sheet, use the snapshot of the screen options.
-    // If we don't do this, the screen behind the bottom sheet might have an unexpected header bahavior.
-    optionsSnapshot.current = screenOptions;
-  }, [screenOptions]);
+  useNestedStack();
+  const { childrens } = useNestedStackScreens(props.children);
 
   return (
     <Stack
       screenOptions={{
         ...(props.screenOptions ?? {}),
-        ...(currentRouteIsBottomSheet
-          ? optionsSnapshot.current
-          : screenOptions),
         ...headerOptions,
       }}
     >

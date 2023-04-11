@@ -1,22 +1,6 @@
-import {
-  DrawerNavigationOptions,
-  DrawerToggleButton,
-} from "@react-navigation/drawer";
-import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { useNavigation, useSegments } from "expo-router";
-import { useLayoutEffect, useMemo } from "react";
-import { View } from "react-native";
-
-const CustomDrawerButton = () => (
-  <View
-    style={{
-      marginLeft: -16,
-      marginRight: 16,
-    }}
-  >
-    <DrawerToggleButton />
-  </View>
-);
+import { useEffect, useLayoutEffect, useMemo } from "react";
 
 /**
  * Uses to handle the stack navigation inside the drawer,
@@ -37,13 +21,4 @@ export const useNestedStack = () => {
     };
     navigation.setOptions(options);
   }, [isSubPage]);
-
-  const screenOptions: Pick<NativeStackNavigationOptions, "headerLeft"> =
-    useMemo(
-      () => ({
-        headerLeft: isSubPage ? undefined : CustomDrawerButton,
-      }),
-      [isSubPage]
-    );
-  return screenOptions;
 };

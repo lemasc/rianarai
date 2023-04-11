@@ -3,8 +3,7 @@ import { useRouter, useSegments } from "expo-router";
 import { getNavigationContainerRef } from "expo-router/src/NavigationContainer";
 import { userStore } from "mobile/features/user";
 import { useInitializeUser } from "mobile/features/user/initialize";
-import { useEffect, useRef, useState } from "react";
-
+import { useCallback, useEffect, useRef, useState } from "react";
 /**
  * Sets up any authentication logic (restoring user from previous session, redirection to login page, etc.)
  */
@@ -21,20 +20,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   );
   const timeoutRef = useRef<NodeJS.Timeout>();
 
-  const checkIfNavigationIsReady = () => {
+  const readyCheckCount = useRef(0);
+
+  const checkIfNavigationIsReady = useCallback(() => {
     const ready = getNavigationContainerRef().isReady();
-    console.log("READY", ready);
     if (ready) {
       setReady(true);
-    } else {
+    } else if (readyCheckCount.current < 100) {
+      readyCheckCount.current++;
       timeoutRef.current = setTimeout(() => {
         checkIfNavigationIsReady();
-      }, 10);
+      }, 100);
+    } else {
+      throw new Error(
+        "Cannot resolve navigation. This is probably an error in `Providers`."
+      );
     }
-  };
+  }, []);
+
   useEffect(() => {
     if (!isNavigationReady) {
       checkIfNavigationIsReady();
+    } else {
+      console.log(`Navigation Ready in ${readyCheckCount.current * 100}ms`);
     }
     return () => clearTimeout(timeoutRef.current);
   }, [isNavigationReady]);

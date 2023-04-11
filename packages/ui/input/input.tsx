@@ -41,6 +41,7 @@ function Input({ onFocus, onBlur, ...props }: IInputProps) {
       }}
       onFocus={handleOnFocus}
       onBlur={handleOnBlur}
+      fontSize="sm"
       {...props}
     />
   );
