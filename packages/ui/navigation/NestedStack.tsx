@@ -2,7 +2,7 @@ import {
   createStackNavigator,
   StackNavigationOptions,
 } from "@react-navigation/stack";
-import { headerOptions } from "config/nav";
+import { stackOptions } from "config/nav";
 import { withLayoutContext } from "expo-router";
 import React from "react";
 
@@ -47,7 +47,7 @@ export const NestedStack = (props: StackProps) => {
     <Stack
       screenOptions={{
         ...(props.screenOptions ?? {}),
-        ...headerOptions,
+        ...stackOptions,
       }}
     >
       {childrens}

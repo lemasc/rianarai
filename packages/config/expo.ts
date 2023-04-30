@@ -30,14 +30,24 @@ const config: ExpoConfig = {
       backgroundColor: "#ffd46e",
     },
   },
+  ios: {
+    bundleIdentifier: "com.lemasc.rianarai",
+    googleServicesFile: path("./platform/GoogleService-Info.plist"),
+  },
   web: {
     bundler: "metro",
     favicon: assets("assets/images/favicon.png"),
   },
   plugins: [
     "@react-native-firebase/app",
-    "expo-community-flipper",
-    "expo-build-properties",
+    [
+      "expo-build-properties",
+      {
+        ios: {
+          useFrameworks: "static",
+        },
+      },
+    ],
     "@react-native-google-signin/google-signin",
   ],
   extra: {
