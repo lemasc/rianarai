@@ -1,5 +1,4 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useIsFocused } from "@react-navigation/core";
 import { FlashList } from "@shopify/flash-list";
 import { RealmContext } from "db/models";
 import { Teacher } from "db/models/Teacher";
@@ -56,7 +55,6 @@ export default function TeachersIndex() {
   const result = useQuery(Teacher);
   const teachers = useMemo(() => result.sorted("name"), [result]);
   const router = useRouter();
-  const isFocused = useIsFocused();
   const extraData = useMemo(() => ({ push: router.push }), [router]);
 
   const realm = useRealm();
@@ -79,14 +77,12 @@ export default function TeachersIndex() {
         extraData={extraData}
         refreshControl={<RefreshControl refreshing={isSyncing} />}
       />
-      {isFocused && (
-        <Fab
-          size="sm"
-          icon={<Icon as={Ionicons} name="add" size="xl" />}
-          colorScheme="rianarai"
-          onPress={() => router.push("/app/teachers/add")}
-        />
-      )}
+      <Fab
+        size="sm"
+        icon={<Icon as={Ionicons} name="add" size="xl" />}
+        colorScheme="rianarai"
+        onPress={() => router.push("/app/teachers/add")}
+      />
     </View>
   );
 }

@@ -15,7 +15,7 @@ export type BottomSheetMethods = BottomSheet;
 export const BottomSheetPage = forwardRef<BottomSheet, BottomSheetPageProps>(
   function BottomSheetPage(
     { snapPoints, onClose, canClose = true, ...props },
-    ref
+    ref,
   ) {
     const router = useRouter();
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -29,13 +29,13 @@ export const BottomSheetPage = forwardRef<BottomSheet, BottomSheetPageProps>(
         if (!canClose) return;
         bottomSheetRef.current?.close(...args);
       },
-      [canClose]
+      [canClose],
     );
 
     useImperativeHandle(ref, () =>
       Object.assign({}, bottomSheetRef.current, {
         close,
-      })
+      }),
     );
 
     /**
@@ -72,7 +72,7 @@ export const BottomSheetPage = forwardRef<BottomSheet, BottomSheetPageProps>(
         </BottomSheet>
       </View>
     );
-  }
+  },
 );
 
 const styles = StyleSheet.create({

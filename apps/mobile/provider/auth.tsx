@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
-import { useRouter, useSegments } from "expo-router";
-import { getNavigationContainerRef } from "expo-router/src/NavigationContainer";
+import { SplashScreen, useRouter, useSegments } from "expo-router";
+import { useExpoRouterContext } from "expo-router/src/hooks";
 import { userStore } from "mobile/features/user";
 import { useInitializeUser } from "mobile/features/user/initialize";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -15,15 +15,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const navigation = useNavigation();
 
+  const context = useExpoRouterContext();
   const [isNavigationReady, setReady] = useState(
-    getNavigationContainerRef().isReady()
+    context.navigationRef.isReady(),
   );
   const timeoutRef = useRef<NodeJS.Timeout>();
 
   const readyCheckCount = useRef(0);
 
   const checkIfNavigationIsReady = useCallback(() => {
-    const ready = getNavigationContainerRef().isReady();
+    const ready = context.navigationRef.isReady();
     if (ready) {
       setReady(true);
     } else if (readyCheckCount.current < 100) {
@@ -33,7 +34,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }, 100);
     } else {
       throw new Error(
-        "Cannot resolve navigation. This is probably an error in `Providers`."
+        "Cannot resolve navigation. This is probably an error in `Providers`.",
       );
     }
   }, []);
@@ -64,5 +65,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [isNavigationReady, user, segments, navigation]);
 
-  return <>{children}</>;
+  return (
+    <>
+      {!isNavigationReady && <SplashScreen />}
+      {children}
+    </>
+  );
 };

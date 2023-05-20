@@ -1,4 +1,4 @@
 module.exports = {
-  extends: "universe/native",
+  extends: ["universe/native", "plugin:prettier/recommended"],
   plugins: ["import"],
 };

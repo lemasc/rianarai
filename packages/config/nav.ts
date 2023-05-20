@@ -1,6 +1,6 @@
 import { HeaderOptions } from "@react-navigation/elements";
 import { StackNavigationOptions } from "@react-navigation/stack";
-import { StyleProp, TextStyle } from "react-native";
+import { TextStyle } from "react-native";
 
 type GlobalHeaderOptions = Pick<HeaderOptions, "headerTintColor"> & {
   headerTitleStyle: Pick<TextStyle, "fontFamily">;
@@ -13,7 +13,7 @@ export const headerOptions: GlobalHeaderOptions = {
   },
 };
 
-export const drawerLabelStyle: StyleProp<TextStyle> = {
+export const labelStyle: TextStyle = {
   fontFamily: "Kanit-400",
 };
 

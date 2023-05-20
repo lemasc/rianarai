@@ -1,5 +1,6 @@
+import { Ionicons } from "@expo/vector-icons";
 import { DrawerNavigationOptions } from "@react-navigation/drawer";
-import { drawerLabelStyle, headerOptions } from "config/nav";
+import { headerOptions, labelStyle } from "config/nav";
 import { RealmContext } from "db/models";
 import { Drawer } from "expo-router/drawer";
 import { userStore } from "mobile/features/user";
@@ -7,6 +8,15 @@ import { useColorModeValue } from "native-base";
 import { useEffect } from "react";
 
 const { useRealm } = RealmContext;
+
+const Icon =
+  (
+    name: React.ComponentProps<typeof Ionicons>["name"],
+  ): DrawerNavigationOptions["drawerIcon"] =>
+  ({ color, size }) => {
+    return <Ionicons name={name} color={color} size={size} />;
+  };
+
 export default function Layout() {
   const drawerTheme = useColorModeValue<DrawerNavigationOptions>(
     {
@@ -18,13 +28,13 @@ export default function Layout() {
       drawerActiveBackgroundColor: "#D48D02",
       drawerActiveTintColor: "#f5f5f5",
       headerTintColor: "#fff",
-    }
+    },
   );
   const realm = useRealm();
   useEffect(() => {
     const progressNotificationCallback: Realm.ProgressNotificationCallback = (
       transferred,
-      transferable
+      transferable,
     ) => {
       // Convert decimal to percent with no decimals
       // (e.g. 0.6666... -> 67)
@@ -36,12 +46,12 @@ export default function Layout() {
     realm.syncSession?.addProgressNotification(
       "upload" as Realm.ProgressDirection.Upload,
       "reportIndefinitely" as Realm.ProgressMode.ReportIndefinitely,
-      progressNotificationCallback
+      progressNotificationCallback,
     );
     // Remove the connection listener when component unmounts
     return () =>
       realm.syncSession?.removeProgressNotification(
-        progressNotificationCallback
+        progressNotificationCallback,
       );
     // Run useEffect only when component mounts
   }, []);
@@ -49,13 +59,30 @@ export default function Layout() {
     <Drawer
       screenOptions={{
         ...headerOptions,
-        drawerLabelStyle,
+        drawerLabelStyle: labelStyle,
         ...drawerTheme,
       }}
     >
-      <Drawer.Screen name="index" options={{ title: "หน้าหลัก" }} />
-      <Drawer.Screen name="courses" options={{ title: "รายวิชา" }} />
-      <Drawer.Screen name="teachers" options={{ title: "ครูผู้สอน" }} />
+      <Drawer.Screen
+        name="index"
+        options={{ title: "หน้าหลัก", drawerIcon: Icon("home") }}
+      />
+      <Drawer.Screen
+        name="courses"
+        options={{ title: "รายวิชา", drawerIcon: Icon("school") }}
+      />
+
+      <Drawer.Screen
+        name="teachers"
+        options={{ title: "ครูผู้สอน", drawerIcon: Icon("people") }}
+      />
+      <Drawer.Screen
+        name="settings/index"
+        options={{
+          title: "การตั้งค่า",
+          drawerIcon: Icon("settings"),
+        }}
+      />
     </Drawer>
   );
 }

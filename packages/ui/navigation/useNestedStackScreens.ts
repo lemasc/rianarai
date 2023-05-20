@@ -1,5 +1,9 @@
-import { DrawerToggleButton } from "@react-navigation/drawer";
+import {
+  DrawerToggleButton,
+  DrawerNavigationOptions,
+} from "@react-navigation/drawer";
 import { StackNavigationOptions } from "@react-navigation/stack";
+import { useNavigation } from "expo-router";
 import { Screen } from "expo-router/src/views/Screen";
 import { useMemo, Children, isValidElement, cloneElement } from "react";
 
@@ -20,13 +24,19 @@ type UseNestedStackScreens = {
   childrens: React.ReactNode;
 };
 
+export const drawerOptions: DrawerNavigationOptions = {
+  headerLeft: DrawerToggleButton,
+};
+
 /**
  * Transforms the given React children into a list of nested stack routes and
  * Injects any necessary styles into the options to make headers and bottom sheet works.
  */
 export const useNestedStackScreens = (
-  children: React.ReactNode
+  children: React.ReactNode,
 ): UseNestedStackScreens => {
+  const navigation = useNavigation();
+  const navigatorType = useMemo(() => navigation.getState().type, [navigation]);
   return useMemo(() => {
     const bottomSheetRoutes: string[] = [];
     const childrens = Children.map(children, (child) => {
@@ -38,7 +48,8 @@ export const useNestedStackScreens = (
             ...child.props,
             options: {
               ...child.props.options,
-              headerLeft: DrawerToggleButton,
+              headerLeft:
+                navigatorType === "drawer" ? DrawerToggleButton : undefined,
             },
           });
         }
@@ -61,5 +72,5 @@ export const useNestedStackScreens = (
       bottomSheetRoutes,
       childrens,
     };
-  }, [children]);
+  }, [children, navigatorType]);
 };
