@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { imports } from "config/fonts";
 import { useFonts } from "expo-font";
-import { Slot, SplashScreen } from "expo-router";
+import { Stack, SplashScreen } from "expo-router";
 import { userStore } from "mobile/features/user";
 import Providers from "mobile/provider";
 
@@ -14,7 +14,11 @@ export default function App() {
 
   return (
     <Providers>
-      {loaded && isInitialized ? <Slot /> : <SplashScreen />}
+      {loaded && isInitialized ? (
+        <Stack screenOptions={{ headerShown: false }} />
+      ) : (
+        <SplashScreen />
+      )}
     </Providers>
   );
 }

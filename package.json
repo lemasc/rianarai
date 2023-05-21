@@ -14,7 +14,8 @@
     "metro": "^0.73.7",
     "metro-resolver": "^0.73.7",
     "native-base@*": "patch:native-base@npm%3A3.4.28#./.yarn/patches/native-base-npm-3.4.28-a8ecceae4d.patch",
-    "native-base@^3.4.28": "patch:native-base@npm%3A3.4.28#./.yarn/patches/native-base-npm-3.4.28-a8ecceae4d.patch"
+    "native-base@^3.4.28": "patch:native-base@npm%3A3.4.28#./.yarn/patches/native-base-npm-3.4.28-a8ecceae4d.patch",
+    "expo-router@^1.7.1": "patch:expo-router@npm%3A1.7.2#./.yarn/patches/expo-router-npm-1.7.2-6e7dfbd84a.patch"
   },
   "overrides": {
     "metro": "^0.73.7",

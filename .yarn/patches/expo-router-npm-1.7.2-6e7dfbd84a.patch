@@ -1,0 +1,12 @@
+diff --git a/src/ExpoRoot.tsx b/src/ExpoRoot.tsx
+index 3cef759d101f0e4c5401865eff0c10d3dd502a76..53f019c0d1e5932a0e712b2e096ccbdb811e48e1 100644
+--- a/src/ExpoRoot.tsx
++++ b/src/ExpoRoot.tsx
+@@ -137,6 +137,7 @@ function ContextNavigator({
+ 
+   React.useEffect(() => {
+     const subscription = navigationRef.addListener("state", (data) => {
++      if (!data.data.state) return;
+       const state = data.data.state as ResultState;
+       setRootState({
+         state,
