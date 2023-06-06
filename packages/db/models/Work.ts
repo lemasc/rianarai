@@ -1,6 +1,6 @@
 import { Realm } from "@realm/react";
 
-import { Subject } from "./Subject";
+import { Course } from "./Course";
 
 export class Work extends Realm.Object<Work, "name" | "subject"> {
   _id: Realm.BSON.ObjectId = new Realm.BSON.ObjectId();
@@ -8,7 +8,7 @@ export class Work extends Realm.Object<Work, "name" | "subject"> {
   description?: string;
   dueDate?: Date;
   completed: boolean = false;
-  subject!: Subject;
+  subject!: Course;
 
   static primaryKey = "_id";
 }

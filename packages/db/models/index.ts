@@ -1,11 +1,11 @@
 import { createRealmContext } from "@realm/react";
 
-import { Subject } from "./Subject";
+import { Course } from "./Course";
 import { Teacher } from "./Teacher";
 import { Work } from "./Work";
 
 export const RealmContext = createRealmContext({
-  schema: [Work, Teacher, Subject],
+  schema: [Work, Teacher, Course],
   deleteRealmIfMigrationNeeded: true,
 });
 
