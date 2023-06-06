@@ -1,13 +1,12 @@
-import { Ionicons } from "@expo/vector-icons";
 import { FlashList } from "@shopify/flash-list";
 import { RealmContext } from "db/models";
 import { Teacher } from "db/models/Teacher";
 import { useRouter } from "expo-router";
 import { userStore } from "mobile/features/user";
-import { Avatar, Fab, HStack, Icon, Text, View, VStack } from "native-base";
+import { Avatar, HStack, Text, View, VStack } from "native-base";
 import { useEffect, useMemo } from "react";
 import { RefreshControl } from "react-native-gesture-handler";
-import { PressableItem } from "ui/components";
+import { Fab, PressableItem } from "ui/components";
 
 const { useQuery, useRealm } = RealmContext;
 
@@ -79,7 +78,7 @@ export default function TeachersIndex() {
       />
       <Fab
         size="sm"
-        icon={<Icon as={Ionicons} name="add" size="xl" />}
+        icon="add"
         colorScheme="rianarai"
         onPress={() => router.push("/app/teachers/add")}
       />

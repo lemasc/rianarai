@@ -2694,7 +2694,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gorhom/portal@npm:1.0.14":
+"@gorhom/portal@npm:1.0.14, @gorhom/portal@npm:^1.0.14":
   version: 1.0.14
   resolution: "@gorhom/portal@npm:1.0.14"
   dependencies:
@@ -4058,6 +4058,15 @@ __metadata:
   bin:
     react-native: build/bin.js
   checksum: 474711ebfad0834e34026889004bc823b79817fc50fb9b614e987755b7073e251643d1078884d3b49f195c83b18bc32b0e608c512e3928fb0dec8dd6be42e180
+  languageName: node
+  linkType: hard
+
+"@react-native-community/datetimepicker@npm:6.5.2":
+  version: 6.5.2
+  resolution: "@react-native-community/datetimepicker@npm:6.5.2"
+  dependencies:
+    invariant: ^2.2.4
+  checksum: ff17fd22750ec825366c980c7505b94a16690ffe529e62cded2d8f1af3f1eaba8fe17ddb67cc5f98fa242b4b939b899c013271b49d44438540e5c7d1a96fee39
   languageName: node
   linkType: hard
 
@@ -7122,7 +7131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.8.15":
+"dayjs@npm:^1.11.7, dayjs@npm:^1.8.15":
   version: 1.11.7
   resolution: "dayjs@npm:1.11.7"
   checksum: 5003a7c1dd9ed51385beb658231c3548700b82d3548c0cfbe549d85f2d08e90e972510282b7506941452c58d32136d6362f009c77ca55381a09c704e9f177ebb
@@ -11799,6 +11808,8 @@ __metadata:
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
     "@expo/vector-icons": ^13.0.0
     "@gorhom/bottom-sheet": ^4
+    "@gorhom/portal": ^1.0.14
+    "@react-native-community/datetimepicker": 6.5.2
     "@react-native-firebase/app": ^17.3.2
     "@react-native-firebase/auth": ^17.3.2
     "@react-native-google-signin/google-signin": ^9.0.2
@@ -11815,6 +11826,7 @@ __metadata:
     babel-plugin-module-resolver: ^5.0.0
     babel-plugin-transform-inline-environment-variables: ^0.4.4
     burnt: ^0.10.0
+    dayjs: ^1.11.7
     db: "workspace:*"
     expo: ~47.0.14
     expo-build-properties: ^0.5.1

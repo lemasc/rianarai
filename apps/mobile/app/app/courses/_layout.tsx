@@ -19,7 +19,6 @@ export default function CourseLayout() {
         name="add"
         options={{
           title: "เพิ่มรายวิชา",
-          presentation: "bottomSheet",
         }}
       />
     </NestedStack>

@@ -2,7 +2,8 @@ import { Button, Heading, ITheme, Text, VStack } from "native-base";
 import { VariantType } from "native-base/lib/typescript/components/types";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
-import { BottomSheetMethods, BottomSheetPage } from "./BottomSheetPage";
+import { BottomSheetMethods } from "./BottomSheetModal";
+import { BottomSheetPage } from "./BottomSheetPage";
 
 export type AlertButton = {
   text: string;

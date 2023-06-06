@@ -46,7 +46,7 @@ export const TeacherEditorForm = ({
         console.error(err);
       }
     }),
-    [reset, onClose, teacher]
+    [reset, onClose, teacher],
   );
 
   useEffect(() => {

@@ -10,6 +10,15 @@ export class Course extends Realm.Object<Course, "name" | "userId"> {
   teachers: Realm.List<Teacher> = new Realm.List();
   works!: Realm.Types.LinkingObjects<Work, "subject">;
   userId!: string;
+  schedules: Realm.List<Schedule> = new Realm.List();
 
   static primaryKey = "_id";
+}
+
+export class Schedule extends Realm.Object<Schedule> {
+  day!: string;
+  start!: string;
+  end!: string;
+
+  static embedded = true;
 }

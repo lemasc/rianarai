@@ -1,3 +1,4 @@
+import { PortalProvider } from "@gorhom/portal";
 import { AppProvider } from "@realm/react";
 import { ENV } from "mobile/features/env";
 
@@ -12,7 +13,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <AppProvider id={ENV.realmAppId}>
         <AuthProvider>
           <DatabaseProvider>
-            <NavigationThemeProvider>{children}</NavigationThemeProvider>
+            <NavigationThemeProvider>
+              <PortalProvider>{children}</PortalProvider>
+            </NavigationThemeProvider>
           </DatabaseProvider>
         </AuthProvider>
       </AppProvider>
