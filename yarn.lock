@@ -1693,6 +1693,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codeherence/react-native-header@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "@codeherence/react-native-header@npm:0.12.0"
+  dependencies:
+    use-debounce: "npm:9.0.3"
+  peerDependencies:
+    "@shopify/flash-list": "*"
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: ">=2.0.0"
+    react-native-safe-area-context: "*"
+  checksum: 10c0/98977bb8d4b222cb8ec1f60acef788468cc4805e9d1ff5e27376ed2922647913715a16f30a2e6ece13618f0036faabbc73557a38cfe175b501d65cb16f345a56
+  languageName: node
+  linkType: hard
+
 "@emotion/is-prop-valid@npm:^0.8.2":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -3032,6 +3047,20 @@ __metadata:
     component-type: "npm:^1.2.1"
     join-component: "npm:^1.1.0"
   checksum: 10c0/c083c70c5f0a42a2bc5b685f82830b968d01b5b8de2a9a1c362a3952c6bb33ffbdfcf8196c8ce110a5050f78ff9dcf395832eb55687843c80dc77dfe659b0803
+  languageName: node
+  linkType: hard
+
+"@shopify/flash-list@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@shopify/flash-list@npm:1.6.3"
+  dependencies:
+    recyclerlistview: "npm:4.2.0"
+    tslib: "npm:2.4.0"
+  peerDependencies:
+    "@babel/runtime": "*"
+    react: "*"
+    react-native: "*"
+  checksum: 10c0/a162503eb7696d447345d933087d1d77a7f8b33eff67a6ab754b8cd541397b2d10e8fe576e63c67c4c087fb6c75e666deba1410150a70f3aa49b5ec9ad524031
   languageName: node
   linkType: hard
 
@@ -6617,7 +6646,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.debounce@npm:^4.0.8":
+"lodash.debounce@npm:4.0.8, lodash.debounce@npm:^4.0.8":
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: 10c0/762998a63e095412b6099b8290903e0a8ddcb353ac6e2e0f2d7e7d03abd4275fe3c689d88960eb90b0dde4f177554d51a690f22a343932ecbc50a5d111849987
@@ -8012,7 +8041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.8.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -8356,6 +8385,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"recyclerlistview@npm:4.2.0":
+  version: 4.2.0
+  resolution: "recyclerlistview@npm:4.2.0"
+  dependencies:
+    lodash.debounce: "npm:4.0.8"
+    prop-types: "npm:15.8.1"
+    ts-object-utils: "npm:0.0.5"
+  peerDependencies:
+    react: ">= 15.2.1"
+    react-native: ">= 0.30.0"
+  checksum: 10c0/eee8e128f90d1c7fe97bc3c1204fd3b959e5895bef76bb45510f0eb23b2b72f5f7c48a87819abdefd0b8eb1dc7f76af57e3dcbaabcfb136306e6e8dee7c0375b
+  languageName: node
+  linkType: hard
+
 "regenerate-unicode-properties@npm:^10.1.0":
   version: 10.1.1
   resolution: "regenerate-unicode-properties@npm:10.1.1"
@@ -8563,9 +8606,11 @@ __metadata:
   resolution: "rianarai@workspace:."
   dependencies:
     "@babel/core": "npm:^7.20.0"
+    "@codeherence/react-native-header": "npm:^0.12.0"
     "@expo-google-fonts/ibm-plex-sans-thai": "npm:^0.2.3"
     "@expo-google-fonts/ibm-plex-sans-thai-looped": "npm:^0.2.3"
     "@react-native-community/datetimepicker": "npm:7.6.1"
+    "@shopify/flash-list": "npm:1.6.3"
     "@types/react": "npm:~18.2.45"
     expo: "npm:~50.0.14"
     expo-constants: "npm:~15.4.5"
@@ -9510,6 +9555,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-object-utils@npm:0.0.5":
+  version: 0.0.5
+  resolution: "ts-object-utils@npm:0.0.5"
+  checksum: 10c0/0279f8a7504b3905f2b14769769985f214154f1aedc60077c3baaced078369ae465aecc6acc04c614f40893e559d05697f6f4ef9fc411e3b6d1d15e6269a5e14
+  languageName: node
+  linkType: hard
+
+"tslib@npm:2.4.0":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 10c0/eb19bda3ae545b03caea6a244b34593468e23d53b26bf8649fbc20fce43e9b21a71127fd6d2b9662c0fe48ee6ff668ead48fd00d3b88b2b716b1c12edae25b5d
+  languageName: node
+  linkType: hard
+
 "tslib@npm:^2.0.1, tslib@npm:^2.1.0, tslib@npm:^2.3.1, tslib@npm:^2.4.0":
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
@@ -9726,6 +9785,15 @@ __metadata:
   version: 4.0.0
   resolution: "url-join@npm:4.0.0"
   checksum: 10c0/1aa466cfa128adab76dc9e559b38e2171df51e6105b5773382c3726e5a29971da013e4f9f5c36f1414ef1e5f1af535cfaf29611b53b0d2fc4f311f7b41199d13
+  languageName: node
+  linkType: hard
+
+"use-debounce@npm:9.0.3":
+  version: 9.0.3
+  resolution: "use-debounce@npm:9.0.3"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/4f53ca823cc6cabcc51993df3142cd08a104def00f5b87054c9e2feedf24686f3aeddcc5410d2d443053e7ba094b856b0b8f20b29a10bc2a1bc2fcfe9add5729
   languageName: node
   linkType: hard
 

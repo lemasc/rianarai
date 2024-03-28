@@ -2,6 +2,7 @@ import { View } from "react-native";
 import { Text } from "@/theme/ui";
 import { LinearGradient } from "expo-linear-gradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
 
 export default function Home() {
   const insets = useSafeAreaInsets();
@@ -15,6 +16,7 @@ export default function Home() {
           borderBottomLeftRadius: 40,
           borderBottomRightRadius: 40,
         }}
+        locations={[0.2, 1]}
         colors={["#66BEEF", "#026CA7"]}
       >
         <Text style={{ color: "white" }} size="4xl">
@@ -48,6 +50,7 @@ export default function Home() {
           <Text size="sm">{`ภาษาอังกฤษเพื่อการสื่อสาร\n10:30-11:30 น.`}</Text>
         </View>
       </View>
+      <StatusBar style="light" translucent />
     </View>
   );
 }
