@@ -1,18 +1,20 @@
+import { StatusBar } from "expo-status-bar";
+import React, { useMemo } from "react";
+import { View } from "react-native";
+
 import {
   ScrollHeaderProps,
   ScrollLargeHeaderProps,
   SharedScrollContainerProps,
 } from "@codeherence/react-native-header";
-import { StatusBar } from "expo-status-bar";
-import React, { useMemo } from "react";
-import { View } from "react-native";
+
 import { Header } from "./Header";
 import { LargeHeader } from "./LargeHeader";
 
 interface ScrollContainerProps<
-  P extends {},
+  P extends object,
   S extends SharedScrollContainerProps & P,
-  T extends React.ComponentType<S> = React.ComponentType<S>
+  T extends React.ComponentType<S> = React.ComponentType<S>,
 > {
   /**
    * A component that support headers from `react-native-header`.
@@ -36,9 +38,9 @@ interface ScrollContainerProps<
 }
 
 export function ScrollableWithHeader<
-  P extends {},
+  P extends object,
   S extends SharedScrollContainerProps & P = SharedScrollContainerProps & P,
-  T extends React.ComponentType<S> = React.ComponentType<S>
+  T extends React.ComponentType<S> = React.ComponentType<S>,
 >({
   Component,
   HeaderComponent,
@@ -50,12 +52,11 @@ export function ScrollableWithHeader<
     keyof ScrollContainerProps<P, S, T>
   >) {
   const WrappedHeader = useMemo(
-    () => (props: ScrollHeaderProps) =>
-      (
-        <Header {...props}>
-          <HeaderComponent {...props} />
-        </Header>
-      ),
+    () => (props: ScrollHeaderProps) => (
+      <Header {...props}>
+        <HeaderComponent {...props} />
+      </Header>
+    ),
     [HeaderComponent]
   );
   const WrappedLargeHeader = useMemo(

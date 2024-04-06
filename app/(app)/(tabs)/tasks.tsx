@@ -1,7 +1,8 @@
-import { Text } from "@/theme/ui";
-import { FlashListProps } from "@shopify/flash-list";
 import { FlashListWithHeaders } from "@codeherence/react-native-header";
+import { FlashListProps } from "@shopify/flash-list";
+
 import { ScrollableWithHeader } from "@/theme/scrollable";
+import { Text } from "@/theme/ui";
 
 const Header = () => (
   <>
@@ -27,7 +28,7 @@ const LargeHeader = () => (
 
 export default function Tasks() {
   return (
-    <ScrollableWithHeader<FlashListProps<{}>>
+    <ScrollableWithHeader<FlashListProps<object>>
       Component={FlashListWithHeaders}
       HeaderComponent={Header}
       LargeHeaderComponent={LargeHeader}

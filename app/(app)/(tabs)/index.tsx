@@ -1,8 +1,10 @@
-import { View } from "react-native";
-import { Text } from "@/theme/ui";
 import { LinearGradient } from "expo-linear-gradient";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
+
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { Text } from "@/theme/ui";
 
 export default function Home() {
   const insets = useSafeAreaInsets();
