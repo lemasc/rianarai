@@ -1,9 +1,7 @@
-import { Text } from "@/theme/ui";
 import {
   FadingView,
   ScrollHeaderProps,
 } from "@codeherence/react-native-header";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Animated, {
   Extrapolation,
   interpolate,
@@ -11,6 +9,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
 } from "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type HeaderProps =
   | Partial<Record<keyof ScrollHeaderProps, never>>
@@ -24,10 +23,10 @@ export const Header = ({
   children: React.ReactNode;
 } & HeaderProps) => {
   const scrollY = useDerivedValue(() =>
-    typeof scrollYValue === undefined ? 183 : scrollYValue.value
+    typeof scrollYValue === "undefined" ? 183 : scrollYValue.value
   );
   const showNavBar = useDerivedValue(() =>
-    typeof showNavBarValue === undefined ? 1 : showNavBarValue.value
+    typeof showNavBarValue === "undefined" ? 1 : showNavBarValue.value
   );
   const insets = useSafeAreaInsets();
   const backgroundStyle = useAnimatedStyle(() => ({
@@ -58,7 +57,3 @@ export const Header = ({
     </Animated.View>
   );
 };
-
-<Header>
-  <Text></Text>
-</Header>;

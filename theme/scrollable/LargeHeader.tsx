@@ -1,9 +1,10 @@
+import { LinearGradient } from "expo-linear-gradient";
+
 import {
-  ScalingView,
   FadingView,
+  ScalingView,
   ScrollLargeHeaderProps,
 } from "@codeherence/react-native-header";
-import { LinearGradient } from "expo-linear-gradient";
 import {
   Extrapolation,
   interpolate,
@@ -21,7 +22,7 @@ export const LargeHeader = ({
   children: React.ReactNode;
 }) => {
   const scrollY = useDerivedValue(() =>
-    typeof scrollYValue === undefined ? 140 : scrollYValue.value
+    typeof scrollYValue === "undefined" ? 140 : scrollYValue.value
   );
   const opacity = useDerivedValue(() =>
     interpolate(scrollY.value, [40, 140], [1, 0], Extrapolation.CLAMP)

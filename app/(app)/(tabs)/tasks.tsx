@@ -1,13 +1,11 @@
-import { Text } from "@/theme/ui";
-import { FlashListProps, ListRenderItem } from "@shopify/flash-list";
-import { FlashListWithHeaders, ScrollableWithHeader } from "@/theme/scrollable";
-import { Link } from "expo-router";
+import { FlashListWithHeaders } from "@codeherence/react-native-header";
+import { FlashListProps } from "@shopify/flash-list";
 import { add } from "date-fns";
-import { useCallback } from "react";
-import { Task, TaskListItem } from "@/modules/tasks/types";
+
 import { transformTaskToListItem } from "@/modules/tasks/list/transform";
-import { Pressable } from "react-native";
-import { TaskItem } from "@/modules/tasks/list/TaskItem";
+import { Task } from "@/modules/tasks/types";
+import { ScrollableWithHeader } from "@/theme/scrollable";
+import { Text } from "@/theme/ui";
 
 const Header = () => (
   <>
@@ -41,55 +39,38 @@ const data = new Array(100).fill(0).map<Task>((_, index) => ({
 const renderedData = transformTaskToListItem(data);
 
 export default function Tasks() {
-  const renderItem = useCallback<ListRenderItem<TaskListItem>>(
-    ({ index, item }) => {
-      if (item.type === "dueDate") {
-        return (
-          <Text
-            style={{
-              paddingTop: 35,
-              paddingBottom: 10,
-              paddingHorizontal: 20,
-              borderBottomWidth: 1,
-              borderBottomColor: "#bfbfbf",
-            }}
-            weight="bold"
-            size="2xl"
-          >
-            {item.date}
-          </Text>
-        );
-      }
-      return (
-        <Link href={`/tasks/${index}`} asChild>
-          <Pressable
-            android_ripple={{ color: "#d1d5db" }}
-            style={{
-              paddingHorizontal: 20,
-              paddingVertical: 10,
-              flex: 1,
-              borderBottomColor: "#d1d5db",
-              borderBottomWidth: 1,
-            }}
-          >
-            <TaskItem task={item.task} />
-          </Pressable>
-        </Link>
-      );
-    },
-    []
-  );
   return (
-    <ScrollableWithHeader<FlashListProps<TaskListItem>>
+    <ScrollableWithHeader<FlashListProps<object>>
       Component={FlashListWithHeaders}
       HeaderComponent={Header}
       LargeHeaderComponent={LargeHeader}
-      data={renderedData}
-      extraData={null}
-      // estimatedItemSize={49}
+      data={new Array(100)}
+      estimatedItemSize={49}
       contentContainerStyle={{ paddingTop: 0, backgroundColor: "white" }}
-      getItemType={(item) => item.type}
-      renderItem={renderItem}
+      renderItem={({ index }) => {
+        if (index % 10 === 0) {
+          return (
+            <Text
+              style={{
+                paddingTop: 20,
+                paddingBottom: 10,
+                paddingHorizontal: 20,
+                borderBottomWidth: 1,
+                borderBottomColor: "#bfbfbf",
+              }}
+              weight="bold"
+              size="2xl"
+            >
+              Header {index}
+            </Text>
+          );
+        }
+        return (
+          <Text style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
+            Index {index}
+          </Text>
+        );
+      }}
     />
   );
 }

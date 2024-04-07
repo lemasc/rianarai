@@ -1,4 +1,3 @@
-import { useFonts as useExpoFonts } from "expo-font";
 import {
   IBMPlexSansThai_100Thin,
   IBMPlexSansThai_200ExtraLight,
@@ -8,6 +7,7 @@ import {
   IBMPlexSansThai_600SemiBold,
   IBMPlexSansThai_700Bold,
 } from "@expo-google-fonts/ibm-plex-sans-thai";
+import { useFonts as useExpoFonts } from "expo-font";
 
 // Tokens
 

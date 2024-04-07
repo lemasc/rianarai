@@ -1,10 +1,11 @@
+import React, { memo } from "react";
 import {
   Text as RText,
   TextProps as RTextProps,
   StyleSheet,
 } from "react-native";
+
 import { FontSize, FontWeight, bodyFonts } from "../fonts";
-import React, { memo } from "react";
 
 export interface TextProps extends RTextProps {
   weight?: FontWeight;
@@ -33,7 +34,7 @@ const StyledText = ({ children, style, weight, size }: TextProps) => {
   return hasTextAncestor ? (
     <RText {...props}>{children}</RText>
   ) : (
-    <TextAncestorContext.Provider value={true}>
+    <TextAncestorContext.Provider value>
       <RText {...props}>{children}</RText>
     </TextAncestorContext.Provider>
   );
